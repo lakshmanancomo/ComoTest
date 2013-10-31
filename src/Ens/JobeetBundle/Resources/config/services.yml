@@ -5,3 +5,14 @@ services:
 #    ens_jobeet.example:
 #        class: %ens_jobeet.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    ens_jobeet.admin.category:
+        class: Ens\JobeetBundle\Admin\CategoryAdmin
+        arguments: [~, Ens\JobeetBundle\Entity\Category, EnsJobeetBundle:CategoryAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Category}
+
+    ens_jobeet.admin.job:
+        class: Ens\JobeetBundle\Admin\JobAdmin
+        arguments: [~, Ens\JobeetBundle\Entity\Job, EnsJobeetBundle:JobAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Job}
